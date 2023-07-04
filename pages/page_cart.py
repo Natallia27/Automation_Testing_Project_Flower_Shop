@@ -1,10 +1,10 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
-
+from utilities.logger import Logger
+import allure
 
 class CartPage(Base):
 
@@ -53,12 +53,15 @@ class CartPage(Base):
     # Methods
 
     def cart_sum(self):
-        self.input_card_text('For you')
-        time.sleep(10)
-        self.click_update_card_button()
-        time.sleep(10)
-        self.click_forward_button()
-        time.sleep(10)
+        with allure.step("Cart_sum"):
+            Logger.add_start_step(method="Cart_sum")
+            self.input_card_text("Love")
+            time.sleep(10)
+            self.click_update_card_button()
+            time.sleep(10)
+            self.click_forward_button()
+            time.sleep(10)
+            Logger.add_end_step(url=self.driver_g.current_url, method="Cart_sum")
 
 
 

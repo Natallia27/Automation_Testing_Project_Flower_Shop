@@ -1,11 +1,11 @@
 import time
-
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
-
+from utilities.logger import Logger
+import allure
 
 class CategoryPage(Base):
 
@@ -84,18 +84,21 @@ class CategoryPage(Base):
 
     # Methods
 
-    def category_product_select(self):
-        self.select_accept()
-        time.sleep(3)
-        self.clear_max_price()
-        self.input_max_price("200")
-        time.sleep(3)
-        self.driver_g.execute_script("scrollTo(0,1000)")
-        time.sleep(3)
-        self.select_check_box_hit()
-        self.select_check_box_size()
-        self.click_filtr_button()
-        time.sleep(3)
-        self.add_product()
+    def product_select(self):
+        with allure.step("Product_select"):
+            Logger.add_start_step(method="Product_select")
+            self.select_accept()
+            time.sleep(3)
+            self.clear_max_price()
+            self.input_max_price("200")
+            time.sleep(3)
+            self.driver_g.execute_script("scrollTo(0,1000)")
+            time.sleep(3)
+            self.select_check_box_hit()
+            self.select_check_box_size()
+            self.click_filtr_button()
+            time.sleep(3)
+            self.add_product()
+            Logger.add_end_step(url=self.driver_g.current_url, method="Product_select")
 
 

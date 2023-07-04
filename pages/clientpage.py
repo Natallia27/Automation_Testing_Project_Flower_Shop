@@ -1,12 +1,10 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.support.wait import WebDriverWait
-
 from base.base_class import Base
-
+from utilities.logger import Logger
+import allure
 
 class ClientPage(Base):
 
@@ -151,38 +149,41 @@ class ClientPage(Base):
 
     # Methods
     def input_client_info(self):
-        self.input_first_name("Adam")
-        self.input_last_name("Kozanowski")
-        self.input_phone("793645789")
-        self.input_email("kazanowski@gmail.com")
-        self.driver_g.execute_script("scrollTo(0,600)")
-        time.sleep(5)
-        self.click_check_box_vat()
-        self.input_order_comments("Phone me, please")
-        time.sleep(5)
-        self.driver_g.execute_script("scrollTo(0,1100)")
-        time.sleep(5)
-        self.click_check_box_anonymous_delivery()
-        self.click_check_box_ecological_paper()
-        self.click_check_box_bouquet_photo()
-        self.driver_g.execute_script("scrollTo(0,100)")
-        time.sleep(5)
-        self.get_current_url()
-        self.get_assert_url("https://bloomflowers.pl/zamowienie/")
-        self.get_screenshot()
-        self.print_price()
-        self.driver_g.execute_script("scrollTo(0,500)")
-        time.sleep(5)
-        self.click_new_date()
-        time.sleep(5)
-        self.click_delivery_hour()
-        time.sleep(5)
-        self.click_select_hour()
-        time.sleep(5)
-        self.driver_g.execute_script("scrollTo(0,1200)")
-        time.sleep(5)
-        self.click_check_box_terms()
-        time.sleep(5)
+        with allure.step("Input_client_info"):
+            Logger.add_start_step(method="Input_client_info")
+            self.input_first_name("Adam")
+            self.input_last_name("Kozanowski")
+            self.input_phone("793645789")
+            self.input_email("kazanowski@gmail.com")
+            self.driver_g.execute_script("scrollTo(0,600)")
+            time.sleep(5)
+            self.click_check_box_vat()
+            self.input_order_comments("Phone me, please")
+            time.sleep(5)
+            self.driver_g.execute_script("scrollTo(0,1100)")
+            time.sleep(5)
+            self.click_check_box_anonymous_delivery()
+            self.click_check_box_ecological_paper()
+            self.click_check_box_bouquet_photo()
+            self.driver_g.execute_script("scrollTo(0,100)")
+            time.sleep(5)
+            self.get_current_url()
+            self.get_assert_url("https://bloomflowers.pl/zamowienie/")
+            self.get_screenshot()
+            self.print_price()
+            self.driver_g.execute_script("scrollTo(0,500)")
+            time.sleep(5)
+            self.click_new_date()
+            time.sleep(5)
+            self.click_delivery_hour()
+            time.sleep(5)
+            self.click_select_hour()
+            time.sleep(5)
+            self.driver_g.execute_script("scrollTo(0,1200)")
+            time.sleep(5)
+            self.click_check_box_terms()
+            time.sleep(5)
+            Logger.add_end_step(url=self.driver_g.current_url, method="Input_client_info")
 
 
 

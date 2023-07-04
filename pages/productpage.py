@@ -1,10 +1,10 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
-
+from utilities.logger import Logger
+import allure
 
 class ProductPage(Base):
 
@@ -76,12 +76,15 @@ class ProductPage(Base):
     # Methods
 
     def product_add(self):
-        self.driver_g.execute_script("scrollTo(0,500)")
-        time.sleep(5)
-        self.select_size()
-        self.print_new_price()
-        self.print_product_name()
-        self.click_cart()
-        time.sleep(5)
-        self.click_cart_page()
-        self.assert_word_cart(self.get_main_word_cart(), 'Podsumowanie koszyka')
+        with allure.step("Product_add"):
+            Logger.add_start_step(method="Product_add")
+            self.driver_g.execute_script("scrollTo(0,500)")
+            time.sleep(5)
+            self.select_size()
+            self.print_new_price()
+            self.print_product_name()
+            self.click_cart()
+            time.sleep(5)
+            self.click_cart_page()
+            self.assert_word_cart(self.get_main_word_cart(), 'Podsumowanie koszyka')
+            Logger.add_end_step(url=self.driver_g.current_url, method="Product_add")

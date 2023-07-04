@@ -1,16 +1,14 @@
 import time
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
-
 from pages.category_page import CategoryPage
 from pages.clientpage import ClientPage
 from pages.page_cart import CartPage
 from pages.page_main import MainPage
 from pages.productpage import ProductPage
+import allure
 
-
+@allure.description("Test_buy_product")
 def test_category_select():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
@@ -22,7 +20,7 @@ def test_category_select():
     pm.category_product_select()
 
     cp = CategoryPage(driver_g)
-    cp.category_product_select()
+    cp.product_select()
 
     pp = ProductPage(driver_g)
     pp.product_add()
