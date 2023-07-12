@@ -1,0 +1,55 @@
+
+-----
+Test: tests/test_buy_product.py::test_category_select (call)
+Start time: 2023-07-12 09:55:32.182047
+Start name method: Category_product_select
+
+End time: 2023-07-12 09:55:36.264326
+End name method: Category_product_select
+URL: https://bloomflowers.pl/sklep/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_category_select (call)
+Start time: 2023-07-12 09:55:36.265359
+Start name method: Product_select
+
+End time: 2023-07-12 09:55:54.535502
+End name method: Product_select
+URL: https://bloomflowers.pl/produkt/autorski-bukiet/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_category_select (call)
+Start time: 2023-07-12 09:55:54.536990
+Start name method: Product_add
+
+End time: 2023-07-12 09:56:07.796081
+End name method: Product_add
+URL: https://bloomflowers.pl/koszyk/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_category_select (call)
+Start time: 2023-07-12 09:56:07.797393
+Start name method: Cart_sum
+
+End time: 2023-07-12 09:56:43.735601
+End name method: Cart_sum
+URL: https://bloomflowers.pl/zamowienie/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_category_select (call)
+Start time: 2023-07-12 09:56:43.736738
+Start name method: Input_client_info
+
+End time: 2023-07-12 09:57:31.857913
+End name method: Input_client_info
+URL: https://bloomflowers.pl/zamowienie/
+
+-----

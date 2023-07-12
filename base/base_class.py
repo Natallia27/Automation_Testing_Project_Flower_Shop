@@ -21,10 +21,10 @@ class Base():
 
     # Time
 
-        now_date = datetime.now(timezone).strftime(" Time in Warsaw %Y-%m-%d %H-%M")
-        name_screenshot = 'screenshot' + now_date + '.png'
+        now_date = datetime.now(timezone).strftime(" time in Warsaw %Y-%m-%d %H-%M")
+        name_screenshot = 'finish_page' + now_date + '.png'
 
-        self.driver_g.save_screenshot('C:\\Users\\natal\\PycharmProjects\\pythonProject_shop\\screen\\' + name_screenshot)
+        self.driver_g.save_screenshot('screen\\' + name_screenshot)
     #
     def get_assert_url(self, result):
         """

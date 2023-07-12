@@ -74,8 +74,8 @@ class ClientPage(Base):
     def get_product_name_and_size(self):
         return self.driver_g.find_element(By.XPATH, self.product_name_and_size)
 
-    def get_new_date(self):
-        return WebDriverWait(self.driver_g, 30).until(EC.element_to_be_clickable((By.XPATH, self.new_date)))
+    # def get_new_date(self):
+    #     return WebDriverWait(self.driver_g, 30).until(EC.element_to_be_clickable((By.XPATH, self.new_date)))
 
 
     def get_delivery_hour(self):
@@ -131,9 +131,9 @@ class ClientPage(Base):
         print("Price_cart:" + price_cart)
         self.price_cart_value = price_cart
 
-    def click_new_date(self):
-        self.get_new_date().click()
-        print("Click new_date")
+    # def click_new_date(self):
+    #     self.get_new_date().click()
+    #     print("Click new_date")
 
     def click_delivery_hour(self):
         self.get_delivery_hour().click()
@@ -173,8 +173,8 @@ class ClientPage(Base):
             self.print_price()
             self.driver_g.execute_script("scrollTo(0,500)")
             time.sleep(5)
-            self.click_new_date()
-            time.sleep(5)
+            # self.click_new_date()
+            # time.sleep(5)
             self.click_delivery_hour()
             time.sleep(5)
             self.click_select_hour()

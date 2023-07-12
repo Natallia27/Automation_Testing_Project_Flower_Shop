@@ -12,25 +12,19 @@ import allure
 def test_category_select():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
-    g = Service('C:\\Users\\natal\\PycharmProjects\\resource\\chromedriver.exe')
+    g = Service('resource\\chromedriver.exe')
     driver_g = webdriver.Chrome(options=options, service=g)
     print('Start test 1')
-
     pm = MainPage(driver_g)
     pm.category_product_select()
-
     cp = CategoryPage(driver_g)
     cp.product_select()
-
     pp = ProductPage(driver_g)
     pp.product_add()
-
     pc = CartPage(driver_g)
     pc.cart_sum()
-
     clp = ClientPage(driver_g)
     clp.input_client_info()
-
     print(pp.price_value)
     print(clp.price_cart_value)
     pp.price_value_changed = pp.price_value.replace("ZŁ", "")
